@@ -1,27 +1,27 @@
 {
 	"schemaVersion": 1,
-	"id": "blocketleagueballcam",
+	"id": "blocketleagueutils",
 	"version": "${version}",
-	"name": "Blocket League Ball Camera",
-	"description": "Add a keybind to switch to Ball Camera, like in Rocket League.",
+	"name": "Blocket League Utils",
+	"description": "Utility mod for Blocket League. Add Ball Cam, remove 2nd person, & more to come.",
 	"authors": [
 		"nalo_"
 	],
 	"contact": {},
 	"license": "CC0-1.0",
-	"icon": "assets/blocketleagueballcam/icon.png",
+	"icon": "assets/blocketleagueutils/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"dev.nalo.BlocketLeagueBallCam"
+			"dev.nalo.BlocketLeagueUtils"
 		],
 		"client": [
-			"dev.nalo.BlocketLeagueBallCamClient"
+			"dev.nalo.BlocketLeagueUtilsClient"
 		]
 	},
 	"mixins": [
 		{
-			"config": "blocketleagueballcam.client.mixins.json",
+			"config": "blocketleagueutils.client.mixins.json",
 			"environment": "client"
 		}
 	],

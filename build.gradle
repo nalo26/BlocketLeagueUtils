@@ -22,7 +22,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"blocketleagueballcam" {
+		"blocketleagueutils" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}

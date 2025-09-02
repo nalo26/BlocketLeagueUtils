@@ -6,8 +6,8 @@ import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 
 import dev.nalo.BallCamHelper;
-import static dev.nalo.BlocketLeagueBallCamClient.ballEntity;
-import static dev.nalo.BlocketLeagueBallCamClient.ballCamKeyBind;
+import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;
+import static dev.nalo.BlocketLeagueUtilsClient.ballCamKeyBind;
 
 public class BallCamEvent implements WorldRenderEvents.Start {
 

@@ -10,7 +10,7 @@ import org.lwjgl.glfw.GLFW;
 
 import dev.nalo.events.BallCamEvent;
 
-public class BlocketLeagueBallCamClient implements ClientModInitializer {
+public class BlocketLeagueUtilsClient implements ClientModInitializer {
 
 	public static Entity ballEntity = null;
 
