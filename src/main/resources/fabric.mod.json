@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "blocketleagueballcam",
+	"version": "${version}",
+	"name": "Blocket League Ball Camera",
+	"description": "Add a keybind to switch to Ball Camera, like in Rocket League.",
+	"authors": [
+		"nalo_"
+	],
+	"contact": {},
+	"license": "CC0-1.0",
+	"icon": "assets/blocketleagueballcam/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.nalo.BlocketLeagueBallCam"
+		],
+		"client": [
+			"dev.nalo.BlocketLeagueBallCamClient"
+		]
+	},
+	"mixins": [
+		{
+			"config": "blocketleagueballcam.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
