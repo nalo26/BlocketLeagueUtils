@@ -37,7 +37,7 @@ public class BallCamHelper {
         return null;
     }
 
-    public static void lookAtEntity(ClientPlayerEntity player, Entity target) {
+    public static void smoothLookAtEntity(ClientPlayerEntity player, Entity target) {
         if (player == null || target == null)
             return;
 
@@ -50,10 +50,33 @@ public class BallCamHelper {
 
         double distXZ = Math.sqrt(dx * dx + dz * dz);
 
-        float yaw = (float) (Math.toDegrees(Math.atan2(dz, dx)) - 90.0F);
-        float pitch = (float) (-Math.toDegrees(Math.atan2(dy, distXZ)));
+        float targetYaw = (float) (Math.toDegrees(Math.atan2(dz, dx)) - 90.0F);
+        // 20 degrees offset for the ball to be slightly above view
+        float targetPitch = (float) (-Math.toDegrees(Math.atan2(dy, distXZ)) + 20.0F);
 
-        player.setYaw(yaw);
-        player.setPitch(pitch);
+        float currentYaw = player.getYaw();
+        float currentPitch = player.getPitch();
+
+        // shortest path for yaw
+        float deltaYaw = wrapDegrees(targetYaw - currentYaw);
+        float deltaPitch = targetPitch - currentPitch;
+
+        // smoothing factor (0 < f <= 1)
+        float factor = 0.2F; // lower = slower, smoother
+
+        float newYaw = currentYaw + deltaYaw * factor;
+        float newPitch = currentPitch + deltaPitch * factor;
+
+        player.setYaw(newYaw);
+        player.setPitch(newPitch);
+    }
+
+    private static float wrapDegrees(float value) {
+        value = value % 360.0F;
+        if (value >= 180.0F)
+            value -= 360.0F;
+        if (value < -180.0F)
+            value += 360.0F;
+        return value;
     }
 }

@@ -24,16 +24,15 @@ public class BallCamEvent implements WorldRenderEvents.Start {
         if (ballCamKeyBind.wasPressed()) {
             if (ballEntity != null) { // Disable ball cam
                 ballEntity = null;
-                player.setYaw(player.getBodyYaw());
-                player.setPitch(0);
+                // player.setYaw(player.getBodyYaw());
+                // player.setPitch(0);
             } else { // Enable ball cam
                 ballEntity = BallCamHelper.findBallEntity();
-                // client.player.sendMessage(Text.literal("Looking at the ball!"));
             }
         }
 
         if (ballEntity == null)
             return;
-        BallCamHelper.lookAtEntity(client.player, ballEntity);
+        BallCamHelper.smoothLookAtEntity(client.player, ballEntity);
     }
 }
