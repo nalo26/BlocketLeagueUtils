@@ -3,7 +3,7 @@
 	"package": "dev.nalo.mixin.client",
 	"compatibilityLevel": "JAVA_17",
 	"client": [
-		"ExampleClientMixin"
+		"MouseMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
