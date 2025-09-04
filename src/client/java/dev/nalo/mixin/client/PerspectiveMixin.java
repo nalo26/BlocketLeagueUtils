@@ -11,7 +11,8 @@ import net.minecraft.client.option.Perspective;
 public abstract class PerspectiveMixin {
 
     /**
-     * Disable third person front view if configured
+     * @author nalo_
+     * @reason Disable third person front view if configured
      */
     @Overwrite
     public Perspective next() {

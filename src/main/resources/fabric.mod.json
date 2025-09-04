@@ -1,41 +1,41 @@
 {
-	"schemaVersion": 1,
-	"id": "blocketleagueutils",
-	"version": "${version}",
-	"name": "Blocket League Utils",
-	"description": "Utility mod for Blocket League. Add Ball Cam, remove 2nd person, & more to come.",
-	"authors": [
-		"nalo_"
-	],
-	"contact": {},
-	"license": "CC0-1.0",
-	"icon": "assets/blocketleagueutils/icon.png",
-	"environment": "client",
-	"entrypoints": {
-		"main": [
-			"dev.nalo.BlocketLeagueUtils"
-		],
-		"client": [
-			"dev.nalo.BlocketLeagueUtilsClient"
-		],
-		"modmenu": [
-			"dev.nalo.config.ModMenuIntegration"
-		]
-	},
-	"mixins": [
-		{
-			"config": "blocketleagueutils.client.mixins.json",
-			"environment": "client"
-		}
-	],
-	"depends": {
-		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.20.4",
-		"java": ">=17",
-		"fabric-api": "*",
-		"yet_another_config_lib_v3": ">=3.6.6"
-	},
-	"suggests": {
-		"modmenu": "9.2.0"
-	}
+    "schemaVersion": 1,
+    "id": "blocketleagueutils",
+    "version": "${version}",
+    "name": "Blocket League Utils",
+    "description": "Utility mod for Blocket League. Add Ball Cam, remove Front 3rd person, and more to come!",
+    "authors": [
+        "nalo_"
+    ],
+    "contact": {},
+    "license": "MIT",
+    "icon": "assets/blocketleagueutils/icon.png",
+    "environment": "client",
+    "entrypoints": {
+        "main": [
+            "dev.nalo.BlocketLeagueUtils"
+        ],
+        "client": [
+            "dev.nalo.BlocketLeagueUtilsClient"
+        ],
+        "modmenu": [
+            "dev.nalo.config.ModMenuIntegration"
+        ]
+    },
+    "mixins": [
+        {
+            "config": "blocketleagueutils.client.mixins.json",
+            "environment": "client"
+        }
+    ],
+    "depends": {
+        "fabricloader": ">=0.17.2",
+        "minecraft": "~1.20.4",
+        "java": ">=17",
+        "fabric-api": "*",
+        "yet_another_config_lib_v3": ">=3.6.6"
+    },
+    "suggests": {
+        "modmenu": "9.2.0"
+    }
 }
