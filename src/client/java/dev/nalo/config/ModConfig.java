@@ -13,15 +13,8 @@ import net.fabricmc.loader.api.FabricLoader;
 import static dev.nalo.BlocketLeagueUtils.MOD_ID;
 
 public class ModConfig {
-    // public static ConfigClassHandler<ModConfig> HANDLER = ConfigClassHandler
-    // .createBuilder(ModConfig.class)
-    // .id(new Identifier(MOD_ID, "config"))
-    // .serializer(config -> GsonConfigSerializerBuilder.create(config)
-    // .setPath(FabricLoader.getInstance().getConfigDir().resolve(MOD_ID + ".json"))
-    // .build())
-    // .build();
-
     public float cameraSmooth = 0.2f; // lower = slower, smoother
+    public float cameraOffset = 20f; // Pitch offset when ball cam is active to avoid cam hidden behind player
     public boolean showHUD = true;
     public boolean disableThirdPersonFront = true;
 

@@ -4,6 +4,8 @@
     "category.blocketleagueutils.config": "General",
     "option.blocketleagueutils.camerasmooth.name": "Camera Smoothness",
     "option.blocketleagueutils.camerasmooth.tooltip": "How smooth the camera move to the ball position (0 = slow & smooth, 1 = fast & rigid)",
+    "option.blocketleagueutils.camerapitchdegree.name": "Camera Pitch Degree",
+    "option.blocketleagueutils.camerapitchdegree.tooltip": "The pitch degree to add when Ball Cam is active to avoid obstructed views by player model (-90 to 90)",
     "option.blocketleagueutils.showhud.name": "Show HUD on Ball Cam",
     "option.blocketleagueutils.showhud.tooltip": "A simple HUD that shows when Ball Cam is active",
     "option.blocketleagueutils.disablethirdpersonfront.name": "Disable Third Person Front View",

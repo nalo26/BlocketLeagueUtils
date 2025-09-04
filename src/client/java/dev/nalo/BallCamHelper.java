@@ -53,8 +53,8 @@ public class BallCamHelper {
         double distXZ = Math.sqrt(dx * dx + dz * dz);
 
         float targetYaw = (float) (Math.toDegrees(Math.atan2(dz, dx)) - 90.0F);
-        // 20 degrees offset for the ball to be slightly above view
-        float targetPitch = (float) (-Math.toDegrees(Math.atan2(dy, distXZ)) + 20.0F);
+        // offset for the ball to be slightly above view
+        float targetPitch = (float) (-Math.toDegrees(Math.atan2(dy, distXZ)) + CONFIG.cameraOffset);
 
         float currentYaw = player.getYaw();
         float currentPitch = player.getPitch();

@@ -34,6 +34,19 @@ public class ScreenFactory implements ConfigScreenFactory<Screen> {
                                         .range(0f, 1f)
                                         .step(0.01f))
                                 .build())
+                        .option(Option.<Float>createBuilder()
+                                .name(Text.translatable(
+                                        "option.blocketleagueutils.camerapitchdegree.name"))
+                                .description(OptionDescription.of(
+                                        Text.translatable(
+                                                "option.blocketleagueutils.camerapitchdegree.tooltip")))
+                                .binding(20f, () -> CONFIG.cameraOffset,
+                                        newValue -> CONFIG.cameraOffset = newValue)
+                                .controller(opt -> FloatSliderControllerBuilder
+                                        .create(opt)
+                                        .range(-90f, 90f)
+                                        .step(1f))
+                                .build())
                         .option(Option.<Boolean>createBuilder()
                                 .name(Text.translatable(
                                         "option.blocketleagueutils.showhud.name"))
