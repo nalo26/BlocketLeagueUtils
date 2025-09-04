@@ -7,6 +7,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.DisplayEntity.ItemDisplayEntity;
 import net.minecraft.util.math.Vec3d;
 
+import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
+
 public class BallCamHelper {
 
     public static ItemDisplayEntity findBallEntity() {
@@ -61,11 +63,8 @@ public class BallCamHelper {
         float deltaYaw = wrapDegrees(targetYaw - currentYaw);
         float deltaPitch = targetPitch - currentPitch;
 
-        // smoothing factor (0 < f <= 1)
-        float factor = 0.2F; // lower = slower, smoother
-
-        float newYaw = currentYaw + deltaYaw * factor;
-        float newPitch = currentPitch + deltaPitch * factor;
+        float newYaw = currentYaw + deltaYaw * CONFIG.cameraSmooth;
+        float newPitch = currentPitch + deltaPitch * CONFIG.cameraSmooth;
 
         player.setYaw(newYaw);
         player.setPitch(newPitch);

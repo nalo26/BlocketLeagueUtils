@@ -1,4 +1,11 @@
 {
+    "category.blocketleagueutils": "Blocket League Utils",
     "key.blocketleagueutils.ballcam": "Toggle Ball Camera",
-    "category.blocketleagueutils": "Blocket League"
+    "category.blocketleagueutils.config": "General",
+    "option.blocketleagueutils.camerasmooth.name": "Camera Smoothness",
+    "option.blocketleagueutils.camerasmooth.tooltip": "How smooth the camera move to the ball position (0 = slow & smooth, 1 = fast & rigid)",
+    "option.blocketleagueutils.showhud.name": "Show HUD on Ball Cam",
+    "option.blocketleagueutils.showhud.tooltip": "A simple HUD that shows when Ball Cam is active",
+    "option.blocketleagueutils.disablethirdpersonfront.name": "Disable Third Person Front View",
+    "option.blocketleagueutils.disablethirdpersonfront.tooltip": "Disables the third person front view (double F5) that serves no purpose in Blocket League"
 }

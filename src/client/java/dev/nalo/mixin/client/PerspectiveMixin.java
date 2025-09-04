@@ -1,5 +1,7 @@
 package dev.nalo.mixin.client;
 
+import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -11,9 +13,17 @@ public abstract class PerspectiveMixin {
     @Overwrite
     public Perspective next() {
         Perspective self = (Perspective) (Object) this;
+        if (CONFIG.disableThirdPersonFront) {
+            return switch (self) {
+                case FIRST_PERSON -> Perspective.THIRD_PERSON_BACK;
+                case THIRD_PERSON_BACK, THIRD_PERSON_FRONT -> Perspective.FIRST_PERSON;
+            };
+        }
+        // (recoded) Default behavior if not disabled
         return switch (self) {
             case FIRST_PERSON -> Perspective.THIRD_PERSON_BACK;
-            case THIRD_PERSON_BACK, THIRD_PERSON_FRONT -> Perspective.FIRST_PERSON;
+            case THIRD_PERSON_BACK -> Perspective.THIRD_PERSON_FRONT;
+            case THIRD_PERSON_FRONT -> Perspective.FIRST_PERSON;
         };
     }
 }
