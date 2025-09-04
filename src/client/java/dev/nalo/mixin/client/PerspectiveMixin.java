@@ -10,6 +10,9 @@ import net.minecraft.client.option.Perspective;
 @Mixin(Perspective.class)
 public abstract class PerspectiveMixin {
 
+    /**
+     * Disable third person front view if configured
+     */
     @Overwrite
     public Perspective next() {
         Perspective self = (Perspective) (Object) this;

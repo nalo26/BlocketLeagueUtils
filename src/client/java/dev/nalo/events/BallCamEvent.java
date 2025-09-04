@@ -31,8 +31,12 @@ public class BallCamEvent implements WorldRenderEvents.Start {
             }
         }
 
+        if (ballEntity != null && ballEntity.isRemoved())
+            ballEntity = BallCamHelper.findBallEntity();
+
         if (ballEntity == null)
             return;
+
         BallCamHelper.smoothLookAtEntity(client.player, ballEntity);
     }
 }
