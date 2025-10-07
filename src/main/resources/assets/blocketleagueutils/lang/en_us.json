@@ -9,5 +9,7 @@
     "option.blocketleagueutils.showhud.name": "Show HUD on Ball Cam",
     "option.blocketleagueutils.showhud.tooltip": "A simple HUD that shows when Ball Cam is active",
     "option.blocketleagueutils.disablethirdpersonfront.name": "Disable Third Person Front View",
-    "option.blocketleagueutils.disablethirdpersonfront.tooltip": "Disables the third person front view (double F5) that serves no purpose in Blocket League"
+    "option.blocketleagueutils.disablethirdpersonfront.tooltip": "Disables the third person front view (double F5) that serves no purpose in Blocket League",
+    "option.blocketleagueutils.ballitem.name": "Ball block",
+    "option.blocketleagueutils.ballitem.tooltip": "Item/block used by the datapack to represent the ball (default: minecraft:target), used to identify the ball for ball cam"
 }

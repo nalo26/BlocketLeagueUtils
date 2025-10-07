@@ -8,8 +8,12 @@ import dev.isxander.yacl3.api.OptionDescription;
 import dev.isxander.yacl3.api.YetAnotherConfigLib;
 import dev.isxander.yacl3.api.controller.FloatSliderControllerBuilder;
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
+import dev.isxander.yacl3.api.controller.ItemControllerBuilder;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
 
@@ -66,6 +70,15 @@ public class ScreenFactory implements ConfigScreenFactory<Screen> {
                                 .binding(true, () -> CONFIG.disableThirdPersonFront,
                                         newValue -> CONFIG.disableThirdPersonFront = newValue)
                                 .controller(TickBoxControllerBuilder::create)
+                                .build())
+                        .option(Option.<Item>createBuilder()
+                                .name(Text.translatable("option.blocketleagueutils.ballitem.name"))
+                                .description(OptionDescription
+                                        .of(Text.translatable("option.blocketleagueutils.ballitem.tooltip")))
+                                .binding(Registries.ITEM.get(new Identifier("minecraft:target")),
+                                        () -> CONFIG.ballItem,
+                                        newValue -> CONFIG.ballItem = newValue)
+                                .controller(ItemControllerBuilder::create)
                                 .build())
                         .build())
                 .save(CONFIG::save)

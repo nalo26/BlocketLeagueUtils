@@ -5,6 +5,9 @@ import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.DisplayEntity.ItemDisplayEntity;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 
 import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
@@ -14,28 +17,24 @@ public class BallCamHelper {
     public static ItemDisplayEntity findBallEntity() {
         MinecraftClient client = MinecraftClient.getInstance();
         ClientWorld world = client.world;
+        Identifier ball_item_id = Registries.ITEM.getId(CONFIG.ballItem);
 
         if (world == null)
             return null;
 
         for (Entity entity : world.getEntities()) {
             if (entity instanceof ItemDisplayEntity itemDisplay) {
-                // NbtCompound nbt = new NbtCompound();
-                // if (itemDisplay.saveNbt(nbt)) {
-                // if (nbt.contains("BallBlock")) {
-                // return itemDisplay;
-                // }
-
-                // Alternative way to check for the BallBlock tag if added by command
-                // }
-                // if (itemDisplay.getCommandTags().contains("BallBlock")) {
-                // return itemDisplay;
-                // }
-
-                // Neither of the above methods work
-                return itemDisplay; // the only item display in the world is the ball
+                NbtCompound nbt = new NbtCompound();
+                if (!itemDisplay.saveNbt(nbt))
+                    continue;
+                if (!nbt.contains("item"))
+                    continue;
+                NbtCompound itemNbt = nbt.getCompound("item");
+                if (itemNbt.contains("id") && itemNbt.getString("id").equals(ball_item_id.toString()))
+                    return itemDisplay;
             }
         }
+
         return null;
     }
 
