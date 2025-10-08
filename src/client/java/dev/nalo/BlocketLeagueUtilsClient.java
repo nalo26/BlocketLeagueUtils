@@ -10,6 +10,7 @@ import net.minecraft.entity.Entity;
 import org.lwjgl.glfw.GLFW;
 
 import dev.nalo.events.BallCamEvent;
+import dev.nalo.events.BallMarkerRendererEvent;
 import dev.nalo.events.HudRenderEvent;
 import dev.nalo.config.ModConfig;
 
@@ -17,11 +18,13 @@ public class BlocketLeagueUtilsClient implements ClientModInitializer {
 
     public static ModConfig CONFIG;
     public static Entity ballEntity = null;
+    public static boolean ballCamEnabled = false;
 
     @Override
     public void onInitializeClient() {
         CONFIG = ModConfig.load();
         WorldRenderEvents.START.register(new BallCamEvent());
+        WorldRenderEvents.AFTER_ENTITIES.register(new BallMarkerRendererEvent());
         HudRenderCallback.EVENT.register(new HudRenderEvent());
     }
 

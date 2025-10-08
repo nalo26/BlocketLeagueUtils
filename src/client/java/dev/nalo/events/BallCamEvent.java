@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import dev.nalo.BallCamHelper;
 import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;
 import static dev.nalo.BlocketLeagueUtilsClient.ballCamKeyBind;
+import static dev.nalo.BlocketLeagueUtilsClient.ballCamEnabled;;
 
 public class BallCamEvent implements WorldRenderEvents.Start {
 
@@ -21,20 +22,13 @@ public class BallCamEvent implements WorldRenderEvents.Start {
             return;
         }
 
-        if (ballCamKeyBind.wasPressed()) {
-            if (ballEntity != null) { // Disable ball cam
-                ballEntity = null;
-                // player.setYaw(player.getBodyYaw());
-                // player.setPitch(0);
-            } else { // Enable ball cam
-                ballEntity = BallCamHelper.findBallEntity();
-            }
-        }
+        if (ballCamKeyBind.wasPressed())
+            ballCamEnabled = !ballCamEnabled;
 
-        if (ballEntity != null && ballEntity.isRemoved())
+        if (ballEntity == null || ballEntity.isRemoved())
             ballEntity = BallCamHelper.findBallEntity();
 
-        if (ballEntity == null)
+        if (!ballCamEnabled || ballEntity == null)
             return;
 
         BallCamHelper.smoothLookAtEntity(client.player, ballEntity);

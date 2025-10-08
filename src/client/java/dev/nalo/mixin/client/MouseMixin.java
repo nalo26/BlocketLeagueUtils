@@ -7,14 +7,15 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;;
+import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;
+import static dev.nalo.BlocketLeagueUtilsClient.ballCamEnabled;
 
 @Mixin(Mouse.class)
 public class MouseMixin {
     @Inject(method = "updateMouse", at = @At("HEAD"), cancellable = true)
     private void updateMouse(CallbackInfo ci) {
         // If ball cam activated & player curently in game (no screen)
-        if (ballEntity != null && MinecraftClient.getInstance().currentScreen == null) {
+        if (ballCamEnabled && ballEntity != null && MinecraftClient.getInstance().currentScreen == null) {
             ci.cancel();
         }
     }

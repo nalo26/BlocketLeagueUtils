@@ -1,5 +1,6 @@
 package dev.nalo.config;
 
+import java.awt.Color;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
@@ -16,14 +17,19 @@ import net.minecraft.util.Identifier;
 import static dev.nalo.BlocketLeagueUtils.MOD_ID;
 
 public class ModConfig {
+    public boolean disableThirdPersonFront = true;
+
     public float cameraSmooth = 0.2f; // lower = slower, smoother
     public float cameraOffset = 20f; // Pitch offset when ball cam is active to avoid cam hidden behind player
     public boolean showHUD = true;
-    public boolean disableThirdPersonFront = true;
-
-    // Saving only the string ID to JSON
-    public String ballItemId = "minecraft:target";
+    public String ballItemId = "minecraft:target"; // Saving only the string ID to JSON
     public transient Item ballItem = Registries.ITEM.get(new Identifier(ballItemId));
+
+    public boolean showBallMarker = true;
+    public float ballMarkerRadius = 2f;
+    public float ballMarkerThickness = 0.2f;
+    public String ballMarkerColorHex = "#FFFFFF"; // Saving only the string hex to JSON
+    public transient Color ballMarkerColor = Color.WHITE;
 
     // The string identifier saved to JSON
     private static final Path FILE = FabricLoader.getInstance().getConfigDir().resolve(MOD_ID + ".json");
@@ -40,16 +46,23 @@ public class ModConfig {
         } else
             config = new ModConfig();
 
-        // Convert string ID back to Item
+        // Update transient fields after loading
         config.ballItem = Registries.ITEM.get(new Identifier(config.ballItemId));
+        try {
+            config.ballMarkerColor = Color.decode(config.ballMarkerColorHex);
+        } catch (NumberFormatException e) {
+            config.ballMarkerColor = Color.WHITE;
+            config.ballMarkerColorHex = "#FFFFFF";
+        }
         return config;
     }
 
     public void save() {
-        // Update ID from Item before saving
+        // Update string identifiers before saving
         Identifier id = Registries.ITEM.getId(ballItem);
         if (id != null)
             ballItemId = id.toString();
+        ballMarkerColorHex = String.format("#%06X", (0xFFFFFF & ballMarkerColor.getRGB()));
 
         try (Writer writer = Files.newBufferedWriter(FILE)) {
             new GsonBuilder().setPrettyPrinting().create().toJson(this, writer);
