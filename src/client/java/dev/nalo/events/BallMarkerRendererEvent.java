@@ -47,12 +47,12 @@ public class BallMarkerRendererEvent implements WorldRenderEvents.AfterEntities 
 
         float oOuterR = CONFIG.ballMarkerRadius + CONFIG.ballMarkerThickness * 0.5f;
         float oInnerR = CONFIG.ballMarkerRadius - CONFIG.ballMarkerThickness * 0.5f;
-        float iOuterR = oInnerR * (1.0f - (float) eyRatio) - CONFIG.ballMarkerThickness;
-        float iInnerR = oInnerR * (1.0f - (float) eyRatio) - CONFIG.ballMarkerThickness * 2;
+        float iOuterR = oInnerR * (1.0f - (float) eyRatio);
+        float iInnerR = oInnerR * (1.0f - (float) eyRatio) - CONFIG.ballMarkerThickness;
         if (oInnerR < 0)
             oInnerR = 0;
-        if (iOuterR < CONFIG.ballMarkerThickness)
-            iOuterR = CONFIG.ballMarkerThickness;
+        if (iOuterR < 0)
+            iOuterR = 0;
         if (iInnerR < 0)
             iInnerR = 0;
 
