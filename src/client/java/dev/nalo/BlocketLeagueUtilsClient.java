@@ -1,18 +1,17 @@
 package dev.nalo;
 
+import org.lwjgl.glfw.GLFW;
+
+import dev.nalo.config.ModConfig;
+import dev.nalo.events.BallCamEvent;
+import dev.nalo.events.BallMarkerRendererEvent;
+import dev.nalo.events.HudRenderEvent;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.entity.Entity;
-
-import org.lwjgl.glfw.GLFW;
-
-import dev.nalo.events.BallCamEvent;
-import dev.nalo.events.BallMarkerRendererEvent;
-import dev.nalo.events.HudRenderEvent;
-import dev.nalo.config.ModConfig;
 
 public class BlocketLeagueUtilsClient implements ClientModInitializer {
 

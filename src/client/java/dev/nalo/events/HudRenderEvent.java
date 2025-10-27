@@ -1,13 +1,14 @@
 package dev.nalo.events;
 
+import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
+import static dev.nalo.BlocketLeagueUtilsClient.ballCamEnabled;
+import static dev.nalo.BlocketLeagueUtilsClient.ballCamKeyBind;
+import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;
+
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.Identifier;
-import static dev.nalo.BlocketLeagueUtilsClient.ballCamEnabled;
-import static dev.nalo.BlocketLeagueUtilsClient.ballCamKeyBind;
-import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;
-import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
 
 public class HudRenderEvent implements HudRenderCallback {
 

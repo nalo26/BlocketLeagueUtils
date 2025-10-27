@@ -1,5 +1,9 @@
 package dev.nalo.config;
 
+import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
+
+import java.awt.Color;
+
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 
 import dev.isxander.yacl3.api.ConfigCategory;
@@ -8,17 +12,13 @@ import dev.isxander.yacl3.api.OptionDescription;
 import dev.isxander.yacl3.api.YetAnotherConfigLib;
 import dev.isxander.yacl3.api.controller.ColorControllerBuilder;
 import dev.isxander.yacl3.api.controller.FloatSliderControllerBuilder;
-import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
 import dev.isxander.yacl3.api.controller.ItemControllerBuilder;
+import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-
-import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
-
-import java.awt.Color;
 
 public class ScreenFactory implements ConfigScreenFactory<Screen> {
 

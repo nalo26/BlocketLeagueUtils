@@ -1,14 +1,14 @@
 package dev.nalo.events;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import static dev.nalo.BlocketLeagueUtilsClient.ballCamEnabled;
+import static dev.nalo.BlocketLeagueUtilsClient.ballCamKeyBind;
+import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;
 
 import dev.nalo.BallCamHelper;
-import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;
-import static dev.nalo.BlocketLeagueUtilsClient.ballCamKeyBind;
-import static dev.nalo.BlocketLeagueUtilsClient.ballCamEnabled;;
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;;
 
 public class BallCamEvent implements WorldRenderEvents.Start {
 

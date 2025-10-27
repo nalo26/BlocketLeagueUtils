@@ -1,5 +1,12 @@
 package dev.nalo.events;
 
+import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
+import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;
+
+import org.joml.Matrix4f;
+
+import com.mojang.blaze3d.systems.RenderSystem;
+
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.block.ShapeContext;
@@ -15,13 +22,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
-
-import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;
-import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
-
-import org.joml.Matrix4f;
-
-import com.mojang.blaze3d.systems.RenderSystem;
 
 public class BallMarkerRendererEvent implements WorldRenderEvents.AfterEntities {
 

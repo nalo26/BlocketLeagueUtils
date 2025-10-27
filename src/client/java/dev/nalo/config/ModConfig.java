@@ -1,5 +1,7 @@
 package dev.nalo.config;
 
+import static dev.nalo.BlocketLeagueUtils.MOD_ID;
+
 import java.awt.Color;
 import java.io.Reader;
 import java.io.Writer;
@@ -13,8 +15,6 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-
-import static dev.nalo.BlocketLeagueUtils.MOD_ID;
 
 public class ModConfig {
     public boolean disableThirdPersonFront = true;

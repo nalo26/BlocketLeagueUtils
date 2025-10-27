@@ -1,14 +1,16 @@
 package dev.nalo.mixin.client;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.Mouse;
+import static dev.nalo.BlocketLeagueUtilsClient.ballCamEnabled;
+import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;
+
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static dev.nalo.BlocketLeagueUtilsClient.ballEntity;
-import static dev.nalo.BlocketLeagueUtilsClient.ballCamEnabled;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Mouse;
 
 @Mixin(Mouse.class)
 public class MouseMixin {

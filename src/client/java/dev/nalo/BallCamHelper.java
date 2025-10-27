@@ -1,5 +1,7 @@
 package dev.nalo;
 
+import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
@@ -9,8 +11,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
-
-import static dev.nalo.BlocketLeagueUtilsClient.CONFIG;
 
 public class BallCamHelper {
 
