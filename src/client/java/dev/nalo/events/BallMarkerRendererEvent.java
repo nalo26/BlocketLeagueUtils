@@ -18,6 +18,7 @@ import net.minecraft.client.render.VertexFormats;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.RaycastContext;
@@ -38,9 +39,10 @@ public class BallMarkerRendererEvent implements WorldRenderEvents.AfterEntities 
     private void renderBallGroundMarker(WorldRenderContext context) {
         MatrixStack matrices = context.matrixStack();
         Vec3d camPos = context.camera().getPos();
+        float tickdelta = context.tickDelta();
 
-        double ex = ballEntity.getX();
-        double ez = ballEntity.getZ();
+        double ex = MathHelper.lerp(tickdelta, ballEntity.lastRenderX, ballEntity.getX());
+        double ez = MathHelper.lerp(tickdelta, ballEntity.lastRenderZ, ballEntity.getZ());
         double ceilY = ballEntity.getWorld().getTopY(Heightmap.Type.WORLD_SURFACE, (int) ex, (int) ez);
         double floorY = raycastFloorY(ballEntity.getWorld(), ballEntity.getPos()) + 0.01; // avoid z-fighting
         double eyRatio = (ballEntity.getY() - (floorY + 2)) / (ceilY - (floorY + 2)); // 2 = ball radius
